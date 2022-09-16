@@ -13,7 +13,7 @@ after_success:
   - docker build -t erwandupuis/multi-nginx ./nginx
   - docker build -t erwandupuis/multi-server ./server
   - docker build -t erwandupuis/multi-worker ./worker
-  - docker login -u "erwandupuis" --password "Canada010522WithJE,;"
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push erwandupuis/multi-client
   - docker push erwandupuis/multi-nginx
   - docker push erwandupuis/multi-server
