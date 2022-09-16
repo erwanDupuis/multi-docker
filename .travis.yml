@@ -18,3 +18,15 @@ after_success:
   - docker push erwandupuis/multi-nginx
   - docker push erwandupuis/multi-server
   - docker push erwandupuis/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'ca-central-1'
+  app: 'multi-docker'
+  env: 'MultiDocker-env'
+  bucket_name: 'elasticbeanstalk-ca-central-1-257672580689'
+  bucket_path: 'docker-multi'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
