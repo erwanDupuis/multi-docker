@@ -3,8 +3,8 @@ services:
   - docker
 
 before_install:
-  - docker build -t erwandupuis/react-test -f ./client/Dockerfile.dev
-
+  -docker build -t erwandupuis/react-test -f ./client/Dockerfile.dev ./client
+ 
 script:
   - docker run -e CI=true erwandupuis/react-test npm test
 
